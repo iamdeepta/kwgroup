@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import BannerTitle from '../layouts/about/banner/BannerTitle'
 import {Header, Footer, TopBar, BottomBar} from '../layouts/general/index'
 import TabProjectFull from '../layouts/project/TabProjectFull';
+import {Helmet} from 'react-helmet-async'
 
 class Projects extends Component {
     constructor(props) {
@@ -29,6 +30,15 @@ class Projects extends Component {
     }
     render() {
         return (
+            <>
+                <Helmet>
+        <title>KW GROUP | Products</title>
+        <meta
+          name="description"
+          content="Get your desired products from KW GROUP."
+        />
+        <link rel="canonical" href="/products" />
+      </Helmet>
             <div className="header-fixed page no-sidebar header-style-2 topbar-style-1 menu-has-search">
                 <div id="wrapper" className="animsition">
                     <div id="page" className="clearfix">
@@ -84,7 +94,8 @@ class Projects extends Component {
                         }
                     </div>
                 </div>
-            </div>
+                </div>
+                </>
         );
     }
 }

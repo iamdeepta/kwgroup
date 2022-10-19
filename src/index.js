@@ -5,13 +5,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import SimpleReactLightbox from "simple-react-lightbox";
+import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.render(
-  <SimpleReactLightbox>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </SimpleReactLightbox>,
+  <BrowserRouter>
+    <HelmetProvider>
+      <SimpleReactLightbox>
+        <App />
+      </SimpleReactLightbox>
+    </HelmetProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

@@ -6,9 +6,14 @@ import {Header, Footer, TopBar, BottomBar} from '../layouts/general/index'
 import Testimonial from '../layouts/home02/Testimonial'
 import TabProduct from '../layouts/home02/TabProduct'
 import LazyLoad from "react-lazyload";
+import { Helmet } from 'react-helmet-async'
+
+//const [active_chat, setActiveChat] = useState(false);
+  
 
 class Home02 extends Component {
     constructor(props) {
+        
         super(props);
         this.state = {
             headers: [
@@ -39,10 +44,32 @@ class Home02 extends Component {
                     title: 'WHY CHOOSE US?'
                 }
             ],
+
+            active_chat: true,
         }
+
+        const activeChat = () => {
+    if (window.scrollY > 50) {
+      //setActiveChat(true);
+      //AOS.init();
+        this.setState({active_chat: true});
+        
+    }
+  };
+
+  window.addEventListener("scroll", activeChat);
     }
     render() {
         return (
+            <>
+                <Helmet>
+        <title>KW GROUP | Home</title>
+        <meta
+          name="description"
+          content="A global leader in apparel manufacturing and outsourcing."
+        />
+        <link rel="canonical" href="/" />
+      </Helmet>
             <div className="header-fixed page no-sidebar header-style-3 topbar-style-3 site-header-absolute menu-has-search">
                 <div id="wrapper" className="animsition">
                     <div id="page" className="clearfix">
@@ -63,8 +90,9 @@ class Home02 extends Component {
                                                 <div id="rev-slider2" className="rev_slider fullwidthabanner">
                                                     <Slider/>
                                                 </div>
-                                            </div>
-                                            <LazyLoad height={200} offset={0} once={true}>
+                                                </div>
+                                                {this.state.active_chat===true && <>
+                                            {/* <LazyLoad height={200} offset={0} once={true}> */}
                                             <div className="row-services">
                                                 <div className="container">
                                                     <div className="row">
@@ -211,7 +239,8 @@ class Home02 extends Component {
                                             </div>
                                             <Partner />
                                             <Testimonial />
-                                            </LazyLoad>
+                                                    {/* </LazyLoad> */}
+                                                    </>}
                                         </div>
                                     </div>
                                 </div>
@@ -226,6 +255,7 @@ class Home02 extends Component {
                     </div>
                 </div>
             </div>
+            </>
         );
     }
 }

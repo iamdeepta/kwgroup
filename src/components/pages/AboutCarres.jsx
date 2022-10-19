@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import {SideBar } from '../layouts/about/detail'
 import BannerTitle from '../layouts/about/banner/BannerTitle'
 import SiteContent from '../layouts/about/carees/SiteContent'
-import {Header, Footer, TopBar, BottomBar} from '../layouts/general/index'
+import { Header, Footer, TopBar, BottomBar } from '../layouts/general/index'
+import {Helmet} from 'react-helmet-async'
 class AboutTeam extends Component {
     constructor(props) {
         super(props);
@@ -28,6 +29,15 @@ class AboutTeam extends Component {
     }
     render() {
         return (
+            <>
+                <Helmet>
+        <title>KW GROUP | Careers</title>
+        <meta
+          name="description"
+          content="We need you! To join our team apply now!"
+        />
+        <link rel="canonical" href="/careers" />
+      </Helmet>
             <div className="header-fixed page sidebar-right header-style-2 topbar-style-1 menu-has-search">
                 <div id="wrapper" className="animsition">
                     <div id="page" className="clearfix">
@@ -58,7 +68,8 @@ class AboutTeam extends Component {
                         ))
                     }
                 </div>
-            </div>
+                </div>
+                </>
         );
     }
 }

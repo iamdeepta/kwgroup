@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import BannerTitle from '../layouts/about/banner/BannerTitle'
 import { FormContact, Information } from '../layouts/contact';
-import {Header, Footer, TopBar, BottomBar} from '../layouts/general/index'
+import { Header, Footer, TopBar, BottomBar } from '../layouts/general/index'
+import { Helmet } from 'react-helmet-async'
 
 class Contact01 extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -26,8 +28,19 @@ class Contact01 extends Component {
             ]
         }
     }
+
+    
     render() {
         return (
+            <>
+                <Helmet>
+        <title>KW GROUP | Contact</title>
+        <meta
+          name="description"
+          content="Feel free to contact us. We provide 24/7 support."
+        />
+        <link rel="canonical" href="/contact-01" />
+      </Helmet>
             <div className="header-fixed page no-sidebar header-style-2 topbar-style-1 menu-has-search">
                 <div id="wrapper" className="animsition">
                     <div id="page" className="clearfix">
@@ -75,7 +88,8 @@ class Contact01 extends Component {
                         ))
                     }
                 </div>
-            </div>
+                </div>
+                </>
         );
     }
 }
